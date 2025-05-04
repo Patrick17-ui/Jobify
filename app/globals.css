@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 263 85% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 330 95% 60%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 142 71% 45%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 263 85% 50%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 263 85% 50%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 330 95% 60%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 142 71% 45%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 263 85% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, hsl(263, 85%, 50%) 0%, hsl(330, 95%, 60%) 100%);
+}
+
+.card-hover-effect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.category-card {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.category-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.category-card:hover::before {
+  opacity: 0;
+}
+
+.testimonial-card {
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 4rem;
+  line-height: 1;
+  font-family: serif;
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(135deg, hsl(263, 85%, 50%), hsl(330, 95%, 60%));
+}
+
+.btn-gradient {
+  background-image: linear-gradient(135deg, hsl(263, 85%, 50%), hsl(263, 85%, 40%));
+  transition: background-image 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background-image: linear-gradient(135deg, hsl(263, 85%, 45%), hsl(263, 85%, 35%));
+}
+
+.btn-secondary-gradient {
+  background-image: linear-gradient(135deg, hsl(330, 95%, 60%), hsl(330, 95%, 50%));
+  transition: background-image 0.3s ease;
+}
+
+.btn-secondary-gradient:hover {
+  background-image: linear-gradient(135deg, hsl(330, 95%, 55%), hsl(330, 95%, 45%));
+}
+
+.accent-glow {
+  box-shadow: 0 0 15px rgba(var(--accent), 0.5);
+}
